@@ -1,11 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   content: [],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
 // eslint-disable-next-line
 /** @type {import('tailwindcss').Config} */
 
@@ -21,6 +13,7 @@ module.exports = {
   },
   plugins: [
     // eslint-disable-next-line
+    require('@tailwindcss/line-clamp'),
     plugin(({ addVariant }) => {
       addVariant('current', '&.active');
     }),
