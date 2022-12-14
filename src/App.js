@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { getProducts } from './redux/products/products';
 import { getCarts } from './redux/carts/carts';
 import ProductList from './components/ProductList';
+import Hero from './components/Hero';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,7 +22,8 @@ function App() {
   }, [dispatch]);
   
   return (
-    <div className="m-2 p-2">
+    <div>
+      <Hero />
       <Router>
         <Routes>
           <Route path="/" element={<ProductList />} />

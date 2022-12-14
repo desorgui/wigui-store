@@ -5,9 +5,9 @@ const CardItem = (props) => {
   const { id, title, image, price } = props;
   return (
     <>      
-      <div className="max-w-2xl mx-auto w-full">
-        <div className="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
-          <div className="h-56 overflow-hidden w-full  flex justify-center">
+      <div className="max-w-2xl w-full px-4 sm:px-0">
+        <div className="bg-white shadow-md rounded-lg dark:bg-gray-800 mx-auto dark:border-gray-700">
+          <div className="h-56 overflow-hidden w-full flex justify-center">
             <NavLink to={`/products/${id}`}>
               <img className="rounded-t-lg h-full" src={image} alt="product" />
             </NavLink>

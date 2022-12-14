@@ -22,6 +22,7 @@ export const getProducts = createAsyncThunk(
         category: product.category,
         description: product.description,
         image: product.image,
+        rating: { rate: product.rating.rate, count: product.rating.count },
       });
     });
     return (productArr);
