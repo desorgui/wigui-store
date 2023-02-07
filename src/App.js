@@ -10,7 +10,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { getProducts } from './redux/products/products';
 import { getCarts } from './redux/carts/carts';
-import ProductList from './components/ProductList';
+// import ProductList from './components/ProductList';
 import Hero from './components/Hero';
 
 function App() {
@@ -23,10 +23,10 @@ function App() {
   
   return (
     <div>
-      <Hero />
       <Router>
         <Routes>
-          <Route path="/" element={<ProductList />} />
+          <Route path="/" element={<Hero />} />
+          {/* <Route path="/" element={<ProductList />} /> */}
         </Routes>
       </Router>
     </div>
