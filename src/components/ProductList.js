@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import ReactPaginate from 'react-paginate';
 import CardItem from "./CardItem";
 
 const ProductList = () => {
@@ -17,4 +18,32 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+function PaginatedItems({ itemsPerPage }) {
+  const products =  useSelector((state) => state.products);
+  const [itemOffset, setItemOffset] = useState(0);
+  const endOffset = itemOffset + itemsPerPage;
+  const currentItems = products.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(products.length / itemsPerPage);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % products.length;
+    setItemOffset(newOffset);
+  };
+
+  return (
+    <>
+      <ProductList />
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="< previous"
+        renderOnZeroPageCount={null}
+      />
+    </>
+  );
+}
+
+export default PaginatedItems;

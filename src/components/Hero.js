@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import ProductList from './ProductList';
+import PaginatedItems from './ProductList';
 
 const Hero = () => {
 
@@ -53,7 +53,7 @@ const Hero = () => {
         <img src={product?.image} alt={product?.title} className="lg:absolute object-cover w-64 right-36 rounded-full" />
     </div>
     </header>
-    <ProductList />
+    <PaginatedItems itemsPerPage={6} />
 </>
 )
 };
