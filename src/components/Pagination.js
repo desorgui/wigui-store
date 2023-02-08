@@ -34,7 +34,7 @@ const Pagination = props => {
   let lastPage = paginationRange[paginationRange.length - 1];
   return (
     <ul
-      className={classnames('pagination-container flex gap-4 justify-center my-12 ', { [className]: className })}
+      className={classnames('pagination-container flex gap-4 justify-center items-center my-12 ', { [className]: className })}
     >
        {/* Left navigation arrow */}
       <li
@@ -56,8 +56,8 @@ const Pagination = props => {
         return (
           <li
             key={pageNumber}
-            className={classnames('pagination-item cursor-pointer', {
-              selected: pageNumber === currentPage
+            className={classnames('pagination-item cursor-pointer current:bg-slate-500 current:text-white px-2 border-2 rounded-full border-zinc-500', {
+              active: pageNumber === currentPage
             })}
             onClick={() => onPageChange(pageNumber)}
           >
