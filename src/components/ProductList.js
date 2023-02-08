@@ -16,7 +16,7 @@ const ProductList = () => {
 
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-[80%]">
         <h2 className="text-center text-3xl lg:text-4xl text-primary-dark-blue mb-5 lg:text-left lg:mb-10">Latest Articles</h2>
         <div className="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
           {currentTableData.map((product) => (

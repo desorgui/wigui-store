@@ -12,6 +12,7 @@ import { getProducts } from './redux/products/products';
 import { getCarts } from './redux/carts/carts';
 // import ProductList from './components/ProductList';
 import Hero from './components/Hero';
+import Analytics from './components/Analytics';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ function App() {
           {/* <Route path="/" element={<ProductList />} /> */}
         </Routes>
       </Router>
+      <Analytics />
     </div>
   );
 }
