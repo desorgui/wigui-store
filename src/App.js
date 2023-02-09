@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { getProducts } from './redux/products/products';
 import { getCarts } from './redux/carts/carts';
 // import ProductList from './components/ProductList';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Analytics from './components/Analytics';
 
@@ -24,6 +25,7 @@ function App() {
   
   return (
     <div>
+      <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<Hero />} />

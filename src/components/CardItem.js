@@ -2,14 +2,14 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 
 const CardItem = (props) => {
-  const { id, title, image, price, rating } = props;
+  const { id, title, price, rating, thumbnail } = props;
   return (
     <>      
       <div className="max-w-2xl w-full px-4 sm:px-0">
         <div className="bg-white shadow-md rounded-lg dark:bg-gray-800 mx-auto dark:border-gray-700">
           <div className="h-56 overflow-hidden w-full flex justify-center">
             <NavLink to={`/products/${id}`}>
-              <img className="rounded-t-lg h-full" src={image} alt="product" />
+              <img className="h-full" src={thumbnail} alt="product" />
             </NavLink>
           </div>
           <div className="px-5 pb-5">
@@ -17,7 +17,7 @@ const CardItem = (props) => {
               <h3 className="text-gray-900 font-semibold text-xl tracking-tight dark:text-white line-clamp-1">{title}</h3>
             </NavLink>
               <div className="flex items-center mt-2.5 mb-5">
-                <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">{rating.rate}</span>
+                <span className="bg-orange-100 text-orange-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-orange-300 dark:text-blue-800">{rating}</span>
                 <svg className="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -31,7 +31,7 @@ const CardItem = (props) => {
                   className="text-white relative overflow-hidden focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-32 h-12 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <span className="text-center pt-4 bg-gradient-to-r left-0 top-0 from-[#ffffff79] to-[#96969640] z-20 absolute backdrop-blur-md w-full h-full leading-12">Add to cart</span>
                   <span className="absolute top-0 -left-4 z-10 rounded-full w-20 h-12 transition-colors duration-300 bg-[#ec331a]" />
-                  <span className="absolute top-0 left-4 z-10 rounded-full w-20 h-12 transition-colors duration-300 bg-[#ec1aad]" />
+                  <span className="absolute top-0 left-4 z-10 rounded-full w-20 h-12 transition-colors duration-300 bg-[#a4bd18]" />
                   <span className="absolute -top-4 left-16 z-10 rounded-full w-20 h-12 transition-colors duration-300 bg-[#ecbb1a]" />
                   <span className="absolute top-4 left-16 z-10 rounded-full w-20 h-12 transition-colors duration-300 bg-[#ff1b6b]" />
                 </NavLink>

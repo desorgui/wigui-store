@@ -6,7 +6,7 @@ export const getProducts = createAsyncThunk(
   FETCHED_PRODUCT,
   async () => {
     const productArr = [];
-    const response = await fetch('https://fakestoreapi.com/products', {
+    const response = await fetch('https://dummyjson.com/products', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -14,7 +14,9 @@ export const getProducts = createAsyncThunk(
       },
     });
     const initValues = await response.json();
-    initValues.forEach((product) => {
+    console.log("initValues: ", initValues);
+    initValues.products.forEach((product) => {
+      console.log("product: ", product);
       productArr.push({
         id: product.id,
         title: product.title,
@@ -22,7 +24,11 @@ export const getProducts = createAsyncThunk(
         category: product.category,
         description: product.description,
         image: product.image,
-        rating: { rate: product.rating.rate, count: product.rating.count },
+        rating: product.rating,
+        stock: product.stock,
+        thumbnail: product.thumbnail,
+        brand: product.brand,
+        discountPercentage: product.discountPercentage,
       });
     });
     return (productArr);
