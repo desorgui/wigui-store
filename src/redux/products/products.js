@@ -23,7 +23,7 @@ export const getProducts = createAsyncThunk(
         price: product.price,
         category: product.category,
         description: product.description,
-        image: product.image,
+        images: product.images,
         rating: product.rating,
         stock: product.stock,
         thumbnail: product.thumbnail,
