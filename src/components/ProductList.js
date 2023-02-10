@@ -7,25 +7,25 @@ const ProductList = () => {
   const products =  useSelector((state) => state.products);
 
   const [filter, setFilter] = useState("all");
-
-  const filteredProducts = useMemo(() => {
-    const productsFiltered = products;
-    if (filter === "all") {
-      return productsFiltered;
-    }
-    return productsFiltered.filter((product) => product.category === filter);
-  }, [filter, products]);
+  const [filteredItems, setFilteredItems] = useState(products);
 
   useEffect(() => {
-    setCurrentPage(1);
-  }, [filter]);
+    if(filter === "all"){
+      setFilteredItems(products);
+    }
+    else {
+      setFilteredItems(products.filter((product) => product.category === filter));
+    }
+  }, [products, filter]);
 
   const [currentPage, setCurrentPage] = useState(1);
+
+  console.log(filteredItems);
 
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * 6;
     const lastPageIndex = firstPageIndex + 6;
-    return filteredProducts.slice(firstPageIndex, lastPageIndex);
+    return filteredItems.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
 
   return (
@@ -52,7 +52,7 @@ const ProductList = () => {
       <Pagination
       className="pagination-bar"
       currentPage={currentPage}
-      totalCount={products?.length}
+      totalCount={filteredItems.length}
       pageSize={6}
       onPageChange={page => setCurrentPage(page)}
       />
