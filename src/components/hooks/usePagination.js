@@ -15,10 +15,6 @@ export const usePagination = (
 
     const totalPageCount = Math.ceil(totalCount / pageSize);
 
-    console.log(totalCount);
-
-    console.log("totalpagecount: ", totalPageCount)
-
     // Pages count is determined as siblingCount + firstPage + lastPage + currentPage + 2*DOTS
     const totalPageNumbers = siblingCount + 5;
 

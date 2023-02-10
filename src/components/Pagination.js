@@ -43,7 +43,7 @@ const Pagination = props => {
         })}
         onClick={onPrevious}
       >
-        prev
+        &#60; prev
       </li>
       {paginationRange.map(pageNumber => {
          
@@ -72,7 +72,7 @@ const Pagination = props => {
         })}
         onClick={onNext}
       >
-        next
+        next &#62;
       </li>
     </ul>
   );

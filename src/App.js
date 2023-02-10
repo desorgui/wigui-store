@@ -14,6 +14,7 @@ import { getCarts } from './redux/carts/carts';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Analytics from './components/Analytics';
+import Footer from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function App() {
         </Routes>
       </Router>
       <Analytics />
+      <Footer />
     </div>
   );
 }
