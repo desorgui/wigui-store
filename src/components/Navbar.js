@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../images/logo2.png';
 import CartPopup from './cartPopup';
+import ProfileDropdown from './ProfileDropdown';
 
 const Navbar = () => {
 
@@ -13,6 +14,16 @@ const Navbar = () => {
   const isClose = () => {
     setIsOpen(false);
   }
+
+  // const [count, setCount] = React.useState(0);
+
+  // const increment = () => {
+  //   setCount(count + 1);
+  // };
+
+  // const decrement = () => {
+  //   setCount(count - 1);
+  // };
 
   return (
     <div className="flex flex-wrap w-full">
@@ -47,7 +58,7 @@ const Navbar = () => {
                   </span>
               </a>
               {/* <!-- Sign In / Register      --> */}
-              <a className="flex items-center hover:text-red-500" href="#">
+              <a className="flex items-center hover:text-red-500" data-dropdown-toggle="dropdownAvatar" href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -73,6 +84,7 @@ const Navbar = () => {
           </a>
         </nav>
       </section>
+      <ProfileDropdown />
       {isOpen && <CartPopup isOpen={isOpen} isClose={isClose}/> }
     </div>
   )
