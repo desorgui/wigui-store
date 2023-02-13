@@ -15,6 +15,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Analytics from './components/Analytics';
 import Footer from './components/Footer';
+import ProductDetail from './components/ProductDetail';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
         </Routes>
       </Router>
       <Analytics />
+      <ProductDetail />
       <Footer />
     </div>
   );

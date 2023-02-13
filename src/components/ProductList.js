@@ -13,7 +13,7 @@ const ProductList = () => {
     setFilteredItems(
       filter === "all" ? products : products.filter(item => item.category === filter)
     );
-  }, [filter, products, filteredItems]);
+  }, [filter, products]);
 
   const handleFilterClick = category => {
     setFilter(category);
@@ -29,7 +29,7 @@ const ProductList = () => {
     console.log('firstPageIndex', firstPageIndex);
     console.table(filteredItems.slice(firstPageIndex, lastPageIndex));
     return filteredItems.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
+  }, [currentPage, filteredItems]);
 
   return (
     <>
@@ -37,13 +37,13 @@ const ProductList = () => {
         <h2 className="text-center text-3xl lg:text-4xl text-primary-dark-blue mb-5 lg:text-left font-bold lg:my-8">Products.</h2>
         <ul className="hidden md:flex mx-auto font-semibold font-heading space-x-12 mb-12">
 
-          <li><a className="hover:text-gray-200 current:text-red-500 active" href="#" onClick={() => handleFilterClick('all')}>All (30)</a></li>
-          <li><a className="hover:text-gray-200" href="#" onClick={() => handleFilterClick('smartphones')}>Smartphones (5)</a></li>
-          <li><a className="hover:text-gray-200" href="#" onClick={() => handleFilterClick('laptops')}>Laptops (5)</a></li>
-          <li><a className="hover:text-gray-200" href="#" onClick={() => handleFilterClick('fragrances')}>fragrances (5)</a></li>
-          <li><a className="hover:text-gray-200" href="#" onClick={() => handleFilterClick('skinkare')}>Skincare (5)</a></li>
-          <li><a className="hover:text-gray-200" href="#" onClick={() => handleFilterClick('groceries')}>Groceries (5)</a></li>
-          <li><a className="hover:text-gray-200" href="#" onClick={() => handleFilterClick('home-decoration')}>Home decoration (5)</a></li>
+          <li className="hover:text-red-500  cursor-pointer current:text-red-500 active" onClick={() => handleFilterClick('all')}>All (30)</li>
+          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('smartphones')}>Smartphones (5)</li>
+          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('laptops')}>Laptops (5)</li>
+          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('fragrances')}>fragrances (5)</li>
+          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('skincare')}>Skincare (5)</li>
+          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('groceries')}>Groceries (5)</li>
+          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('home-decoration')}>Home decoration (5)</li>
 
         </ul>
         <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
