@@ -6,6 +6,16 @@ import Pagination from "./Pagination";
 const ProductList = () => {
   const products =  useSelector((state) => state.products);
 
+  const productsData = products;
+  
+  const countByCategory = productsData.reduce((acc, product) => {
+    const category = product.category;
+    return {
+      ...acc,
+      [category]: (acc[category] || 0) + 1
+    }
+  }, {});  
+
   const [filter, setFilter] = useState("all");
   const [filteredItems, setFilteredItems] = useState([]);
 
@@ -21,30 +31,21 @@ const ProductList = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  console.log(filteredItems);
-
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * 6;
     const lastPageIndex = firstPageIndex + 6;
-    console.log('firstPageIndex', firstPageIndex);
-    console.table(filteredItems.slice(firstPageIndex, lastPageIndex));
     return filteredItems.slice(firstPageIndex, lastPageIndex);
   }, [currentPage, filteredItems]);
 
   return (
     <>
-      <div className="container mx-auto max-w-[80%]">
+      <div className="container mx-auto max-w-[80%] mb-12">
         <h2 className="text-center text-3xl lg:text-4xl text-primary-dark-blue mb-5 lg:text-left font-bold lg:my-8">Products.</h2>
         <ul className="hidden md:flex mx-auto font-semibold font-heading space-x-12 mb-12">
-
-          <li className="hover:text-red-500  cursor-pointer current:text-red-500 active" onClick={() => handleFilterClick('all')}>All (30)</li>
-          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('smartphones')}>Smartphones (5)</li>
-          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('laptops')}>Laptops (5)</li>
-          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('fragrances')}>fragrances (5)</li>
-          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('skincare')}>Skincare (5)</li>
-          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('groceries')}>Groceries (5)</li>
-          <li className="hover:text-red-500 cursor-pointer" onClick={() => handleFilterClick('home-decoration')}>Home decoration (5)</li>
-
+        <li className="hover:text-red-500  cursor-pointer current:text-red-500 active" onClick={() => handleFilterClick('all')}>All ({products.length})</li>
+          {Object.keys(countByCategory).map(category => (
+            <li className="hover:text-red-500 cursor-pointer" key={category} onClick={() => handleFilterClick(category)}>{category} ({countByCategory[category]})</li>
+          ))}
         </ul>
         <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
           {currentTableData.map((product) => (
