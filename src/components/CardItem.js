@@ -1,8 +1,23 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
+import { addProductCart } from "../redux/carts/carts";
+import { useDispatch } from "react-redux";
 
 const CardItem = (props) => {
   const { id, title, price, rating, thumbnail } = props;
+
+  const dispatch = useDispatch();
+
+  const handleAddToCartClick = () => {
+    const product = {
+      id: id,
+      title: title,
+      price: price,
+      thumbnail: thumbnail,
+    };
+    dispatch(addProductCart(product));
+  }
+
   return (
     <>      
       <div className="max-w-2xl w-full px-4 sm:px-0">
@@ -28,6 +43,7 @@ const CardItem = (props) => {
               <div className="flex items-center justify-between">
                 <span className="text-lg font-bold text-gray-900 dark:text-white">$ {price}</span>
                 <NavLink to="#"
+                  onClick={handleAddToCartClick}
                   className="text-white relative overflow-hidden focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-32 h-12 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     <span className="text-center pt-4 bg-gradient-to-r left-0 top-0 from-[#ffffff79] to-[#96969640] z-20 absolute backdrop-blur-md w-full h-full leading-12">Add to cart</span>
                   <span className="absolute top-0 left-0 z-10 w-full h-full transition-colors duration-300 bg-[#ec331a]" />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CartPopup = (props) => {
 
@@ -96,7 +97,7 @@ const CartPopup = (props) => {
                   </div>
                   <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                   <div className="mt-6">
-                    <a href="#" className="flex items-center justify-center relative rounded-md border border-transparent bg-[#e74c3c] active:shadow-[0_3px_2px_#c0392b,0_3px_5px_#111] shadow-[0_7px_2px_#c0392b,0_8px_5px_#111] opacity-80 hover:opacity-100 active:top-[4px] px-6 py-3 text-base font-medium text-white">Checkout</a>
+                    <Link to="/checkout" onClick={isClose} className="flex items-center justify-center relative rounded-md border border-transparent bg-[#e74c3c] active:shadow-[0_3px_2px_#c0392b,0_3px_5px_#111] shadow-[0_7px_2px_#c0392b,0_8px_5px_#111] opacity-80 hover:opacity-100 active:top-[4px] px-6 py-3 text-base font-medium text-white">Checkout</Link>
                   </div>
                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                     <p>
