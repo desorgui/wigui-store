@@ -1,12 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { removeProductCart } from '../redux/carts/carts';
 
 const CartPopup = (props) => {
 
   const { isOpen, isClose } = props;
 
   const cartItems = useSelector((state) => state.carts);
+
+  const dispatch = useDispatch();
+
+  const handleRemoveClick = (productId) => {
+    dispatch(removeProductCart(productId));
+  }
 
   return (
     <>
@@ -38,18 +45,18 @@ const CartPopup = (props) => {
                       <ul role="list" className="-my-6 divide-y divide-gray-200">
                         {cartItems.map((product) => {
                           return (
-                        <li className="flex py-6" key={product.id}>
+                        <li className="flex py-6" key={product?.id}>
                           <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                            <img src={product.thumbnail} alt={product.title} className="h-full w-full object-cover object-center" />
+                            <img src={product?.thumbnail} alt={product?.title} className="h-full w-full object-cover object-center" />
                           </div>
 
                           <div className="ml-4 flex flex-1 flex-col">
                             <div>
                               <div className="flex justify-between text-base font-medium text-gray-900">
                                 <h3>
-                                  <a href="#">{product.title}</a>
+                                  <a href="#">{product?.title}</a>
                                 </h3>
-                                <p className="ml-4">${product.price}</p>
+                                <p className="ml-4">${product?.price}</p>
                               </div>
                               <p className="mt-1 text-sm text-gray-500">Salmon</p>
                             </div>
@@ -57,7 +64,7 @@ const CartPopup = (props) => {
                               <p className="text-gray-500">Qty 1</p>
 
                               <div className="flex">
-                                <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                <button type="button" onClick={() => handleRemoveClick(product?.id)} className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
                               </div>
                             </div>
                           </div>

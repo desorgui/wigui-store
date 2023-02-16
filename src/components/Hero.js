@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import marketImg from '../images/market.png';
+import Analytics from './Analytics';
 
 import PaginatedItems from './ProductList';
 
@@ -34,6 +35,7 @@ const Hero = () => {
             </div>
         </header>
         <PaginatedItems itemsPerPage={6} />
+        <Analytics />
 </>
 )
 };

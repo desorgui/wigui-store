@@ -41,6 +41,20 @@ export const addProductCart = createAsyncThunk(
   }
 );
 
+
+export const removeProductCart = createAsyncThunk(
+  'cart/removeProduct',
+  async (productId) => {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const updatedCartItems = cartItems.filter(
+      (item) => item.id !== productId
+    );
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
+    return(updatedCartItems);
+  }
+)
+
 export const fetchCart = createAsyncThunk(
   'cart/fetchCart',
   async () => {
@@ -55,6 +69,8 @@ const cartSlice = createSlice({
   extraReducers: {
     [fetchCart.fulfilled]: (state, action) => action.payload,
     [addProductCart.fulfilled]: (state, action) => ([...state, action.payload]),
+    [removeProductCart.fulfilled]: (state, action) => (action.payload),
+    // [removeProductCart.fulfilled]: (state, action) => ([...state, action.payload]),
     // [deleteReservation.fulfilled]: (state, action) => (state.filter((elem) => elem.id !== action.payload)), /* eslint-disable-line */
    },
 });

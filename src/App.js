@@ -13,7 +13,6 @@ import { fetchCart } from './redux/carts/carts';
 // import ProductList from './components/ProductList';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Analytics from './components/Analytics';
 import Footer from './components/Footer';
 import ProductDetail from './components/ProductDetail';
 import Checkout from './components/Checkout';
@@ -35,7 +34,6 @@ function App() {
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
-      <Analytics />
       <Footer />
     </div>
   );

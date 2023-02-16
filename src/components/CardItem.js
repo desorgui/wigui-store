@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from 'react-router-dom';
 import { addProductCart } from "../redux/carts/carts";
 import { useDispatch } from "react-redux";
 
 const CardItem = (props) => {
-  const { id, title, price, rating, thumbnail } = props;
+  const { id, title, price, rating, thumbnail, brand } = props;
 
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const existingCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    setCartItems(existingCartItems);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+  
   const dispatch = useDispatch();
 
   const handleAddToCartClick = () => {
@@ -14,8 +25,20 @@ const CardItem = (props) => {
       title: title,
       price: price,
       thumbnail: thumbnail,
+      brand: brand,
     };
-    dispatch(addProductCart(product));
+    const existingCartItemIndex = cartItems.findIndex(
+      (item) => item.id == id
+    );
+    if (existingCartItemIndex != -1) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingCartItemIndex].quantity += 1;
+      setCartItems(updatedCartItems);
+    } else {
+      const newCartItem = { ...product, quantity: 1 };
+      setCartItems([...cartItems, newCartItem]);
+      dispatch(addProductCart(newCartItem));
+    }
   }
 
   return (
