@@ -66,10 +66,11 @@ const Checkout = () => {
                 <span className="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
                 <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_1">
                   <img className="w-14 object-contain" src={fedex} alt="" />
-                  <div className="ml-5">
+                  <div className="ml-5 mr-auto">
                     <span className="mt-2 font-semibold">Fedex Delivery</span>
                     <p className="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
                   </div>
+                  <p className="text-lg font-bold ml-auto my-auto mr-12">$12</p>
                 </label>
               </div>
               <div className="relative">
@@ -81,6 +82,7 @@ const Checkout = () => {
                     <span className="mt-2 font-semibold">DHL Delivery</span>
                     <p className="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
                   </div>
+                  <p className="text-lg font-bold ml-auto my-auto mr-12">$12</p>
                 </label>
               </div>
             </form>

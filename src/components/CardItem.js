@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from 'react-router-dom';
 import { addProductCart } from "../redux/carts/carts";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { incrementItemQuantity } from "../redux/carts/carts";
 
 const CardItem = (props) => {
   const { id, title, price, rating, thumbnail, brand } = props;
 
-  const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    const existingCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    setCartItems(existingCartItems);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+  const cartProducts = useSelector((state) => state.carts);
   
   const dispatch = useDispatch();
 
@@ -27,16 +19,13 @@ const CardItem = (props) => {
       thumbnail: thumbnail,
       brand: brand,
     };
-    const existingCartItemIndex = cartItems.findIndex(
+    const existingCartItemIndex = cartProducts.findIndex(
       (item) => item.id == id
     );
     if (existingCartItemIndex != -1) {
-      const updatedCartItems = [...cartItems];
-      updatedCartItems[existingCartItemIndex].quantity += 1;
-      setCartItems(updatedCartItems);
+      dispatch(incrementItemQuantity(id))
     } else {
       const newCartItem = { ...product, quantity: 1 };
-      setCartItems([...cartItems, newCartItem]);
       dispatch(addProductCart(newCartItem));
     }
   }

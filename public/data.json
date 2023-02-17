@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "title": "title",
+    "price": 200,
+    "category": "category",
+    "description": "description",
+    "images": "images",
+    "rating": "rating",
+    "stock": "stock",
+    "thumbnail": "thumbnail",
+    "brand": "brand",
+    "discountPercentage": 12
+  },
+  {
+    "id": 2,
+    "title": "title 2",
+    "price": 200,
+    "category": "category",
+    "description": "description",
+    "images": "images",
+    "rating": "rating",
+    "stock": "stock",
+    "thumbnail": "thumbnail",
+    "brand": "brand",
+    "discountPercentage": 12
+  },
+  {
+    "id": 3,
+    "title": "title 3",
+    "price": 200,
+    "category": "category",
+    "description": "description",
+    "images": "images",
+    "rating": "rating",
+    "stock": "stock",
+    "thumbnail": "thumbnail",
+    "brand": "brand",
+    "discountPercentage": 12
+  }
+]

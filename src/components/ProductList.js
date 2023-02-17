@@ -6,6 +6,8 @@ import Pagination from "./Pagination";
 const ProductList = () => {
   const products =  useSelector((state) => state.products);
 
+  const product30 = new Array(30);
+
   const productsData = products;
   
   const countByCategory = productsData.reduce((acc, product) => {
@@ -57,7 +59,7 @@ const ProductList = () => {
       className="pagination-bar"
       currentPage={currentPage}
       currentTableData={currentTableData}
-      totalCount={filteredItems.length}
+      totalCount={product30.length}
       pageSize={6}
       onPageChange={page => setCurrentPage(page)}
       />

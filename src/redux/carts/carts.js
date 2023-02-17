@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const FETCHED_CART = 'FETCHED_CART';
+const INCREMENT_QUANTITY = 'INCREMENT_QUANTITY';
+const DECREMENT_QUANTITY = 'DECREMENT_QUANTITY'
 
 // export const getCarts = createAsyncThunk(
 //   FETCHED_CART,
@@ -63,6 +65,10 @@ export const fetchCart = createAsyncThunk(
   }
 );
 
+export const incrementItemQuantity = (id) => ({ type: INCREMENT_QUANTITY, payload: id });
+
+export const decrementItemQuantity = (id) => ({ type: DECREMENT_QUANTITY, payload: id });
+
 const cartSlice = createSlice({
   name: 'carts',
   initialState: [],
@@ -70,6 +76,20 @@ const cartSlice = createSlice({
     [fetchCart.fulfilled]: (state, action) => action.payload,
     [addProductCart.fulfilled]: (state, action) => ([...state, action.payload]),
     [removeProductCart.fulfilled]: (state, action) => (action.payload),
+    [INCREMENT_QUANTITY]: (state, action) => (
+      state.map((product) => (
+        product.id === action.payload
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      ))
+    ),
+    [DECREMENT_QUANTITY]: (state, action) => (
+      state.map((product) => (
+        product.id === action.payload
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      ))
+    ),
     // [removeProductCart.fulfilled]: (state, action) => ([...state, action.payload]),
     // [deleteReservation.fulfilled]: (state, action) => (state.filter((elem) => elem.id !== action.payload)), /* eslint-disable-line */
    },

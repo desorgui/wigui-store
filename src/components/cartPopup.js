@@ -2,18 +2,31 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeProductCart } from '../redux/carts/carts';
+import { incrementItemQuantity, decrementItemQuantity } from '../redux/carts/carts';
 
 const CartPopup = (props) => {
 
   const { isOpen, isClose } = props;
 
   const cartItems = useSelector((state) => state.carts);
+  const cartProducts = cartItems;
 
   const dispatch = useDispatch();
 
   const handleRemoveClick = (productId) => {
     dispatch(removeProductCart(productId));
   }
+
+  const productsTotal = cartProducts.reduce((acc, product) => {
+    const price = product.price;
+    const quantity = product.quantity;
+    return {
+      ...acc,
+      [product.title]: (acc[price] || 0) * quantity
+    }
+  }, {});
+
+  console.log(productsTotal);
 
   return (
     <>
@@ -61,7 +74,12 @@ const CartPopup = (props) => {
                               <p className="mt-1 text-sm text-gray-500">Salmon</p>
                             </div>
                             <div className="flex flex-1 items-end justify-between text-sm">
-                              <p className="text-gray-500">Qty 1</p>
+                            <div className="flex">
+                              <p className="text-gray-500">Qty:</p>
+                              <button className="px-2" onClick={() => dispatch(decrementItemQuantity(product.id))}>-</button>
+                              <p>{product.quantity}</p>
+                              <button className="px-2" onClick={() => dispatch(incrementItemQuantity(product.id))}>+</button>
+                              </div>
 
                               <div className="flex">
                                 <button type="button" onClick={() => handleRemoveClick(product?.id)} className="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
