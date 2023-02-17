@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const FETCHED_CART = 'FETCHED_CART';
 const INCREMENT_QUANTITY = 'INCREMENT_QUANTITY';
-const DECREMENT_QUANTITY = 'DECREMENT_QUANTITY'
+const DECREMENT_QUANTITY = 'DECREMENT_QUANTITY';
 
 export const addProductCart = createAsyncThunk(
   'cart/addCart',

@@ -15,7 +15,6 @@ export const getProducts = createAsyncThunk(
       },
     });
     const initValues = await response.json();
-    console.log(initValues)
     initValues.products.forEach((product) => {
     // initValues.forEach((product) => {
       productArr.push({
