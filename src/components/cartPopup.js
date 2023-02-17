@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState, useEffect }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeProductCart } from '../redux/carts/carts';
@@ -8,8 +8,19 @@ const CartPopup = (props) => {
 
   const { isOpen, isClose } = props;
 
+  const [total, setTotal] = useState(0);
+
   const cartItems = useSelector((state) => state.carts);
   const cartProducts = cartItems;
+
+ useEffect(() => {
+    const total = cartProducts.reduce((acc, product) => {
+      const price = product.price;
+      const quantity = product.quantity;
+      return acc + (price * quantity);
+    }, 0);
+    setTotal(total);
+  }, [total]);
 
   const dispatch = useDispatch();
 
@@ -74,11 +85,11 @@ const CartPopup = (props) => {
                               <p className="mt-1 text-sm text-gray-500">Salmon</p>
                             </div>
                             <div className="flex flex-1 items-end justify-between text-sm">
-                            <div className="flex">
-                              <p className="text-gray-500">Qty:</p>
-                              <button className="px-2" onClick={() => dispatch(decrementItemQuantity(product.id))}>-</button>
-                              <p>{product.quantity}</p>
-                              <button className="px-2" onClick={() => dispatch(incrementItemQuantity(product.id))}>+</button>
+                              <div className="flex">
+                                <p className="text-gray-500">Qty:</p>
+                                <button className="px-2" onClick={() => dispatch(decrementItemQuantity(product.id))}>-</button>
+                                <p>{product.quantity}</p>
+                                <button className="px-2" onClick={() => dispatch(incrementItemQuantity(product.id))}>+</button>
                               </div>
 
                               <div className="flex">
@@ -97,7 +108,7 @@ const CartPopup = (props) => {
                 <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                   <div className="flex justify-between text-base font-medium text-gray-900">
                     <p>Subtotal</p>
-                    <p>$262.00</p>
+                    <p>${total}</p>
                   </div>
                   <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                   <div className="mt-6">
