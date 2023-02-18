@@ -28,21 +28,10 @@ const CartPopup = (props) => {
     dispatch(removeProductCart(productId));
   }
 
-  const productsTotal = cartProducts.reduce((acc, product) => {
-    const price = product.price;
-    const quantity = product.quantity;
-    return {
-      ...acc,
-      [product.title]: (acc[price] || 0) * quantity
-    }
-  }, {});
-
-  console.log(productsTotal);
-
   return (
     <>
     {isOpen && (
-    <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+    <div className="relative z-50" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
       <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
       <div className="fixed inset-0 overflow-hidden">
