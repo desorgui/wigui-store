@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 
@@ -8,7 +8,11 @@ const ProductDetail = () => {
 
   const product = useSelector((state) => state.products.find((product) => product.id == id));
 
-  console.log(product);
+  const [selectedThumbnail, setSelectedThumbnail] = useState(product.thumbnail);
+
+  const handleThumbnailClick = (thumbnail) => {
+    setSelectedThumbnail(thumbnail);
+  };
 
     return (
       <>
@@ -16,8 +20,13 @@ const ProductDetail = () => {
     <div className="flex flex-col md:flex-row -mx-4">
       <div className="md:flex-1 px-4 justify-center">
         <div x-data="{ image: 1 }" x-cloak="true">
-          <div className="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
-            <img src={product.thumbnail} alt={product.title} className="h-64 md:h-80 rounded-lg md:flex-1 bg-gray-100 mb-4" />
+          <div className="rounded-lg mb-4 flex">
+            <div className="flex flex-col-reverse mr-4 w-16">
+              {product?.images?.map((image, index) => (
+                <img src={image} alt={"Thumbnail "+ index} onClick={() => handleThumbnailClick(image)} className="w-12 h-12 mb-2 rounded-full border-2 border-[#e74c3c]" />
+              ))}
+            </div>
+            <img src={selectedThumbnail} alt={product.title} className="h-64 md:h-80 rounded-lg max-w-md object-cover bg-gray-100 mb-4" />
           </div>
         </div>
       </div>
