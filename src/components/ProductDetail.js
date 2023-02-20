@@ -21,7 +21,7 @@ const ProductDetail = () => {
       <div className="md:flex-1 px-4 justify-center">
         <div x-data="{ image: 1 }" x-cloak="true">
           <div className="rounded-lg mb-4 flex">
-            <div className="flex flex-col-reverse mr-4 w-16">
+            <div className="flex flex-col mr-4 w-16">
               {product?.images?.map((image, index) => (
                 <img src={image} alt={"Thumbnail "+ index} onClick={() => handleThumbnailClick(image)} className="w-12 h-12 mb-2 rounded-full border-2 border-[#e74c3c]" />
               ))}
@@ -31,23 +31,23 @@ const ProductDetail = () => {
         </div>
       </div>
       <div className="md:flex-1 px-4">
-        <h2 className="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">Lorem ipsum dolor, sit amet consectetur, adipisicing elit.</h2>
-        <p className="text-gray-500 text-sm">By <a href="#" className="text-indigo-600 hover:underline">ABC Company</a></p>
+        <h2 className="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{product.title}</h2>
+        <p className="text-gray-500 text-sm">By <a href="#" className="text-[#e74c3c] hover:underline">{product.brand}</a></p>
 
         <div className="flex items-center space-x-4 my-4">
           <div>
             <div className="rounded-lg bg-gray-100 flex py-2 px-3">
-              <span className="text-indigo-400 mr-1 mt-1">$</span>
-              <span className="font-bold text-indigo-600 text-3xl">25</span>
+              <span className="text-[#ff897c] mr-1 mt-1">$</span>
+              <span className="font-bold text-[#e74c3c] text-3xl">{product.price}</span>
             </div>
           </div>
           <div className="flex-1">
-            <p className="text-green-500 text-xl font-semibold">Save 12%</p>
+            <p className="text-[#ff9100] text-xl font-semibold">Save {product.discountPercentage}%</p>
             <p className="text-gray-400 text-sm">Inclusive of all Taxes.</p>
           </div>
         </div>
 
-        <p className="text-gray-500">Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Vitae exercitationem porro saepe ea harum corrupti vero id laudantium enim, libero blanditiis expedita cupiditate a est.</p>
+        <p className="text-gray-500">{product.description}</p>
 
         <div className="flex py-4 space-x-4">
           <div className="relative">
@@ -65,7 +65,7 @@ const ProductDetail = () => {
             </svg>
           </div>
 
-          <button type="button" className="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
+          <button type="button" className="h-14 px-6 py-2 font-semibold rounded-xl bg-[#e94c3ad0] hover:bg-[#fa341e] text-white">
             Add to Cart
           </button>
         </div>
