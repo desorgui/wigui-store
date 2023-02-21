@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { incrementItemQuantity } from "../redux/carts/carts";
 
 const CardItem = (props) => {
-  const { id, title, price, rating, thumbnail, brand } = props;
+  const { id, title, price, rating, thumbnail, brand, increment } = props;
 
   const cartProducts = useSelector((state) => state.carts);
   
@@ -27,6 +27,7 @@ const CardItem = (props) => {
     } else {
       const newCartItem = { ...product, quantity: 1 };
       dispatch(addProductCart(newCartItem));
+      increment();
     }
   }
 

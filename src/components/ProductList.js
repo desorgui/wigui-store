@@ -3,7 +3,10 @@ import { useSelector } from "react-redux";
 import CardItem from "./CardItem";
 import Pagination from "./Pagination";
 
-const ProductList = () => {
+const ProductList = (props) => {
+
+  const { increment } = props;
+
   const products =  useSelector((state) => state.products);
 
   const productsData = products;
@@ -49,7 +52,7 @@ const ProductList = () => {
         </ul>
         <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
           {currentTableData.map((product) => (
-              <CardItem key={product.id} {...product} />
+              <CardItem key={product.id} {...product} increment={increment}/>
           ))}
         </div>
       </div>

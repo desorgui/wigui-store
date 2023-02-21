@@ -4,19 +4,14 @@ import { NavLink } from 'react-router-dom';
 import marketImg from '../images/market.png';
 import Analytics from './Analytics';
 
-import PaginatedItems from './ProductList';
+import ProductList from './ProductList';
 
-const Hero = () => {
+const Hero = (props) => {
 
-  const products = useSelector((state) => state.products); // eslint-disable-line eqeqeq
-//   function random_item(items){   
-//     return items[Math.floor(Math.random()*items.length)];
-//   }
-
-//   const product = random_item(products);
+    const { increment } = props;
   return (
         <>
-        <header className="bg-white dark:bg-gray-900">
+        <header className="bg-white dark:bg-gray-900 mt-20">
             <div className="container flex flex-col-reverse px-6 py-4 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row items-center">
                 <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2 z-10">
                     <div className="max-w-lg lg:mx-12 lg:order-2">
@@ -34,7 +29,7 @@ const Hero = () => {
                 <img src={marketImg} alt='market' className="lg:absolute object-cover md:w-2/4 right-0 z-10" />
             </div>
         </header>
-        <PaginatedItems itemsPerPage={6} />
+        <ProductList increment={increment} />
         <Analytics />
 </>
 )

@@ -4,7 +4,9 @@ import logo from '../images/logo2.png';
 import CartPopup from './cartPopup';
 import ProfileDropdown from './ProfileDropdown';
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  const { counter, decrement } = props;
 
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -16,18 +18,8 @@ const Navbar = () => {
     setIsOpen(false);
   }
 
-  // const [count, setCount] = React.useState(0);
-
-  // const increment = () => {
-  //   setCount(count + 1);
-  // };
-
-  // const decrement = () => {
-  //   setCount(count - 1);
-  // };
-
   return (
-    <div className="flex flex-wrap w-full">
+    <div className="flex flex-wrap w-full fixed z-50 top-0">
       <section className="relative mx-auto w-full">
           {/* <!-- navbar --> */}
         <nav className="flex justify-between bg-white w-full">
@@ -54,7 +46,7 @@ const Navbar = () => {
                   </svg>
                 <span className="flex absolute -mt-5 ml-4">
                   <span className="animate-ping absolute inline-flex h-4 w-4 rounded-full bg-pink-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-4 w-4 bg-pink-500 justify-center items-center text-white">0
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-pink-500 justify-center items-center text-white">{counter}
                     </span>
                   </span>
               </NavLink>
@@ -74,7 +66,7 @@ const Navbar = () => {
             </svg>
             <span className="flex absolute -mt-5 ml-4">
               <span className="animate-ping absolute inline-flex h-4 w-4 rounded-full bg-pink-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-4 w-4 bg-pink-500 justify-center items-center text-white">0
+                <span className="relative inline-flex rounded-full h-4 w-4 bg-pink-500 justify-center items-center text-white">{counter}
                 </span>
               </span>
           </NavLink>
@@ -86,7 +78,7 @@ const Navbar = () => {
         </nav>
       </section>
       <ProfileDropdown />
-      {isOpen && <CartPopup isOpen={isOpen} isClose={isClose}/> }
+      {isOpen && <CartPopup isOpen={isOpen} isClose={isClose} decrement={decrement} /> }
     </div>
   )
 }

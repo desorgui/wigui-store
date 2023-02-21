@@ -6,7 +6,7 @@ import { incrementItemQuantity, decrementItemQuantity } from '../redux/carts/car
 
 const CartPopup = (props) => {
 
-  const { isOpen, isClose } = props;
+  const { isOpen, isClose, decrement } = props;
 
   const [total, setTotal] = useState(0);
 
@@ -25,6 +25,7 @@ const CartPopup = (props) => {
   const dispatch = useDispatch();
 
   const handleRemoveClick = (productId) => {
+    decrement();
     dispatch(removeProductCart(productId));
   }
 
