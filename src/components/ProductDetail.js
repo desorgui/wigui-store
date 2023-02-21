@@ -16,14 +16,17 @@ const ProductDetail = () => {
 
     return (
       <>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-    <div className="flex flex-col md:flex-row -mx-4">
-      <div className="md:flex-1 px-4 justify-center">
-        <div x-data="{ image: 1 }" x-cloak="true">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 py-12">
+    <div className="flex flex-col items-center md:flex-row -mx-4">
+      <div className=" px-4 justify-center">
+        <div>
           <div className="rounded-lg mb-4 flex">
             <div className="flex flex-col mr-4 w-16">
               {product?.images?.map((image, index) => (
-                <img src={image} alt={"Thumbnail "+ index} onClick={() => handleThumbnailClick(image)} className="w-12 h-12 mb-2 rounded-full border-2 border-[#e74c3c]" />
+                <img src={image} alt={"Thumbnail "+ index} onClick={() => handleThumbnailClick(image)}
+                  className={`transition-all cursor-pointer w-12 h-12 mb-2 rounded-full border border-[#e74c3c]
+                  ${ image === selectedThumbnail ? "active border-2 border-[#e74c3c] shadow-lg rounded-sm" : "" }`}
+                />
               ))}
             </div>
             <img src={selectedThumbnail} alt={product.title} className="h-64 md:h-80 rounded-lg max-w-md object-cover bg-gray-100 mb-4" />
