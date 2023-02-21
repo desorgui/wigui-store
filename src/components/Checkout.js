@@ -1,12 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import fedex from '../images/fedex.png';
 import dhl from '../images/dhl.png';
 
-const Checkout = () => {
-
-  const cartItems = useSelector((state) => state.carts);
-
+const Checkout = (props) => {
+  const { cartItems, total } = props;
   return (
     <>
       <div className="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
@@ -108,7 +105,7 @@ const Checkout = () => {
           <div className="mt-6 border-t border-b py-2">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-900">Subtotal</p>
-                <p className="font-semibold text-gray-900">$399.00</p>
+                <p className="font-semibold text-gray-900">${total}</p>
               </div>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-gray-900">Shipping</p>

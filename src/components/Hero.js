@@ -2,13 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import marketImg from '../images/market.png';
-import Analytics from './Analytics';
 
-import ProductList from './ProductList';
-
-const Hero = (props) => {
-
-    const { increment } = props;
+const Hero = () => {
   return (
         <>
         <header className="bg-white dark:bg-gray-900 mt-20">
@@ -29,8 +24,6 @@ const Hero = (props) => {
                 <img src={marketImg} alt='market' className="lg:absolute object-cover md:w-2/4 right-0 z-10" />
             </div>
         </header>
-        <ProductList increment={increment} />
-        <Analytics />
 </>
 )
 };

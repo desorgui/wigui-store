@@ -6,17 +6,7 @@ import ProfileDropdown from './ProfileDropdown';
 
 const Navbar = (props) => {
 
-  const { counter, decrement } = props;
-
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setIsOpen(true);
-  }
-
-  const isClose = () => {
-    setIsOpen(false);
-  }
+  const { counter, handleOpen } = props;
 
   return (
     <div className="flex flex-wrap w-full fixed z-50 top-0">
@@ -78,7 +68,6 @@ const Navbar = (props) => {
         </nav>
       </section>
       <ProfileDropdown />
-      {isOpen && <CartPopup isOpen={isOpen} isClose={isClose} decrement={decrement} /> }
     </div>
   )
 }
