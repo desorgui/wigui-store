@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Wigui Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project where I want to build an online store
 
-## Available Scripts
+Project State after fetching data from Api, Using redux as state manager, and Implement interface using React and Tailwind
 
-In the project directory, you can run:
+Home (Product list Screenshots).
 
 ### `npm start`
 
