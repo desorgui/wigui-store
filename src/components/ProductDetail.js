@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 const ProductDetail = () => {
   const { id } = useParams();
 
-  const product = useSelector((state) => state.products.find((product) => product.id === id));
+  const product = useSelector((state) => state.products.find((product) => product.id === Number(id)));
 
   const [selectedThumbnail, setSelectedThumbnail] = useState(product.thumbnail);
 
@@ -15,7 +15,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-20">
         <div className="flex flex-col items-center md:flex-row -mx-4">
           <div className=" px-4 justify-center">
             <div>
