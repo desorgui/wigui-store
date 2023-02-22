@@ -8,7 +8,7 @@ export const getProducts = createAsyncThunk(
     const productArr = [];
     const response = await fetch('https://dummyjson.com/products', {
       // const response = await fetch('data.json', {
-        method: 'GET',
+      method: 'GET',
       headers: {
         'content-type': 'application/json',
         accept: 'application/json',
@@ -40,7 +40,7 @@ const productSlice = createSlice({
   initialState: [],
   extraReducers: {
     [getProducts.fulfilled]: (state, action) => action.payload,
-   },
+  },
 });
 
 export default productSlice.reducer;

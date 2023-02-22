@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { 
+import React, { useEffect, useState } from 'react';
+import {
   Routes,
   Route,
 } from 'react-router-dom';
@@ -26,12 +26,11 @@ function App() {
 
   const handleOpen = () => {
     setIsOpen(true);
-  }
+  };
 
   const isClose = () => {
     setIsOpen(false);
-  }
-
+  };
 
   const increment = () => {
     setCounter(counter + 1);
@@ -46,10 +45,10 @@ function App() {
   const cartItems = useSelector((state) => state.carts);
   const cartProducts = cartItems;
 
- useEffect(() => {
+  useEffect(() => {
     const total = cartProducts.reduce((acc, product) => {
-      const price = product.price;
-      const quantity = product.quantity;
+      const { price } = product;
+      const { quantity } = product;
       return acc + (price * quantity);
     }, 0);
     setTotal(total);
@@ -60,29 +59,33 @@ function App() {
     dispatch(fetchCart());
     setCounter(carts.length);
   }, [dispatch, counter]);
-  
+
   return (
     <div>
       <Navbar counter={counter} handleOpen={handleOpen} />
       <Routes>
-        <Route path="/" element={
-          <>
-          <Hero />
-          <ProductList increment={increment} />
-          <Analytics />
-          </>
-          } 
+        <Route
+          path="/"
+          element={(
+            <>
+              <Hero />
+              <ProductList increment={increment} />
+              <Analytics />
+            </>
+        )}
         />
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/checkout" element={<Checkout cartItems={cartItems} total={total} />} />
       </Routes>
-      {isOpen && <CartPopup 
+      {isOpen && (
+      <CartPopup
         isOpen={isOpen}
         isClose={isClose}
         decrement={decrement}
         cartItems={cartItems}
         total={total}
-      /> }
+      />
+      ) }
       <Footer />
     </div>
   );
