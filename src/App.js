@@ -52,13 +52,13 @@ function App() {
       return acc + (price * quantity);
     }, 0);
     setTotal(total);
-  }, [total, counter]);
+  }, [total, cartItems]);
 
   useEffect(() => {
     dispatch(getProducts());
     dispatch(fetchCart());
     setCounter(carts.length);
-  }, [dispatch, counter]);
+  }, [dispatch, counter, cartItems]);
 
   return (
     <div>
