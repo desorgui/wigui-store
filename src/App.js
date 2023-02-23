@@ -58,7 +58,7 @@ function App() {
     dispatch(getProducts());
     dispatch(fetchCart());
     setCounter(carts.length);
-  }, [dispatch, counter, cartItems]);
+  }, [dispatch, counter]);
 
   return (
     <div>
