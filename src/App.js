@@ -20,7 +20,9 @@ function App() {
 
   const carts = useSelector((state) => state.carts);
 
-  const [counter, setCounter] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  const [counter, setCounter] = useState(carts.length);
 
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -40,8 +42,6 @@ function App() {
     setCounter(counter - 1);
   };
 
-  const [total, setTotal] = useState(0);
-
   const cartItems = useSelector((state) => state.carts);
   const cartProducts = cartItems;
 
@@ -58,7 +58,7 @@ function App() {
     dispatch(getProducts());
     dispatch(fetchCart());
     setCounter(carts.length);
-  }, [dispatch, counter]);
+  }, [dispatch]);
 
   return (
     <div>
