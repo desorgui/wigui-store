@@ -22,7 +22,7 @@ function App() {
 
   const [total, setTotal] = useState(0);
 
-  const [counter, setCounter] = useState(carts.length);
+  const [counter, setCounter] = useState(0);
 
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -58,7 +58,7 @@ function App() {
     dispatch(getProducts());
     dispatch(fetchCart());
     setCounter(carts.length);
-  }, [dispatch]);
+  }, [dispatch, counter, carts.length]);
 
   return (
     <div>
