@@ -5,6 +5,10 @@ import dhl from '../images/dhl.png';
 
 const Checkout = (props) => {
   const { cartItems, total } = props;
+
+  const [shipping, setShipping] = React.useState(15);
+
+  const totalWithShipping = total + shipping;
   return (
     <>
       <div className="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
@@ -62,7 +66,7 @@ const Checkout = (props) => {
               <div className="relative">
                 <input className="peer hidden" id="radio_1" type="radio" name="radio" checked />
                 <span className="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white" />
-                <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" htmlFor="radio_1">
+                <label onClick={() => setShipping(12)} className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" htmlFor="radio_1">
                   <img className="w-14 object-contain" src={fedex} alt="" />
                   <div className="ml-5 mr-auto">
                     <span className="mt-2 font-semibold">Fedex Delivery</span>
@@ -74,13 +78,13 @@ const Checkout = (props) => {
               <div className="relative">
                 <span className="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white" />
                 <input className="peer hidden" id="radio_2" type="radio" name="radio" checked />
-                <label className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" htmlFor="radio_2">
+                <label onClick={() => setShipping(15)} className="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" htmlFor="radio_2">
                   <img className="w-14 object-contain" src={dhl} alt="" />
                   <div className="ml-5">
                     <span className="mt-2 font-semibold">DHL Delivery</span>
-                    <p className="text-slate-500 text-sm leading-6">Delivery: 2-4 Days</p>
+                    <p className="text-slate-500 text-sm leading-6">Delivery: 1-3 Days</p>
                   </div>
-                  <p className="text-lg font-bold ml-auto my-auto mr-12">$12</p>
+                  <p className="text-lg font-bold ml-auto my-auto mr-12">$15</p>
                 </label>
               </div>
             </form>
@@ -114,12 +118,18 @@ const Checkout = (props) => {
             </div>
             <div className="flex items-center justify-between">
               <p className="text-sm font-medium text-gray-900">Shipping</p>
-              <p className="font-semibold text-gray-900">$8.00</p>
+              <p className="font-semibold text-gray-900">
+                <span>$</span>
+                {shipping}
+              </p>
             </div>
           </div>
           <div className="mt-6 flex items-center justify-between">
             <p className="text-sm font-medium text-gray-900">Total</p>
-            <p className="text-2xl font-semibold text-gray-900">$408.00</p>
+            <p className="text-2xl font-semibold text-gray-900">
+              $
+              {totalWithShipping}
+            </p>
           </div>
           <button type="button" className="mt-4 mb-8 w-full rounded-md bg-[#e74c3c] px-6 py-3 font-medium text-white">Place Order</button>
         </div>
