@@ -1,58 +1,72 @@
-# Wigui Store
+### TITLE
 
-This is a project where I want to build an online store
+> ### WIGUI-STORE
 
-Project State after fetching data from Api, Using redux as state manager, and Implement interface using React and Tailwind
-
-Home (Product list Screenshots).
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
+## Description
 
 
-### `npm run build`
+## Built With
 
+<<<<<<< HEAD
+- *[Create React App](https://github.com/facebook/create-react-app)*
 
-### `npm run eject`
+- *Linters for HTML/CSS/JS*
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- *GIT/Github*
+=======
+>>>>>>> abe5fa4249733f9eb938177137f57f25be137717
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- *Visual Studio Code*
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Live Demo (if available)
 
+ [Live Version](https://wiguistore.netlify.app/)
 
+## Getting Started
+
+### Prerequisites
+
+<<<<<<< HEAD
+- You need to have a code editor to be able to run the code. VSCode is most preferred.
+
+### Setup
+To get a local copy up and running follw these simple example steps:
+=======
 ## 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+>>>>>>> abe5fa4249733f9eb938177137f57f25be137717
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+    - Select the link with the code on the https code table in the repo
+    - Open a Terminal and write the command: git clone https://github.com/desorgui/wigui-store
+    - $ cd into the directory and run npm install
+    - $ After the node_module module is installed successfully, run npm start
+    - $ The project will open on the browser
+    
+```
 
-### Code Splitting
+### Install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Run it in your code editor
 
-### Analyzing the Bundle Size
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+👤 **Guishny Desor**
 
-### Making a Progressive Web App
+- GitHub:  [@desorgui](https://github.com/desorgui)
+- Twitter: [@Dguishny](https://twitter.com/DGuishny)
+- LinkedIn:  [Guishny Desor](https://www.linkedin.com/in/desorguishny)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🤝 Contributing
 
-### Advanced Configuration
+## Show your support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Give a ⭐️ if you like this project!
 
-### Deployment
+## Acknowledgments
 
+- Microverse
 
-### `npm run build` fails to minify
+## 📝 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is [MIT](./MIT.md) licensed. 
