@@ -45,7 +45,7 @@ const ProductList = (props) => {
       <div className="container mx-auto max-w-[80%] mb-12">
         <h2 className="text-center text-3xl lg:text-4xl text-primary-dark-blue mb-5 lg:text-left font-bold lg:my-8">Products.</h2>
         <ul className="hidden md:flex mx-auto font-semibold font-heading space-x-12 mb-12">
-          <li className="hover:text-red-500  cursor-pointer current:text-red-500 active">
+          <li className={`hover:text-red-500  cursor-pointer ${filter === 'all' ? 'current:text-red-500 active' : ''}`}>
             <button type="button" onClick={() => handleFilterClick('all')}>
               All (
               {products.length}
@@ -54,7 +54,7 @@ const ProductList = (props) => {
           </li>
           {Object.keys(countByCategory).map((category) => (
             <li
-              className="hover:text-red-500 cursor-pointer"
+              className={`hover:text-red-500 cursor-pointer ${filter === category ? 'current:text-red-500 active' : ''}`}
               key={category}
             >
               <button type="button" onClick={() => handleFilterClick(category)}>
