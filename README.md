@@ -7,11 +7,14 @@
 
 ## Built With
 
+<<<<<<< HEAD
 - *[Create React App](https://github.com/facebook/create-react-app)*
 
 - *Linters for HTML/CSS/JS*
 
 - *GIT/Github*
+=======
+>>>>>>> abe5fa4249733f9eb938177137f57f25be137717
 
 - *Visual Studio Code*
 
@@ -23,10 +26,15 @@
 
 ### Prerequisites
 
+<<<<<<< HEAD
 - You need to have a code editor to be able to run the code. VSCode is most preferred.
 
 ### Setup
 To get a local copy up and running follw these simple example steps:
+=======
+## 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+>>>>>>> abe5fa4249733f9eb938177137f57f25be137717
 
 ```
     - Select the link with the code on the https code table in the repo
@@ -60,5 +68,7 @@ Give a ⭐️ if you like this project!
 - Microverse
 
 ## 📝 License
+
+This project is [MIT](./MIT.md) licensed. 
 
 This project is [MIT](./MIT.md) licensed.
