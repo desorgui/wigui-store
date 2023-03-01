@@ -11,8 +11,8 @@ const Checkout = (props) => {
   const totalWithShipping = total + shipping;
   return (
     <>
-      <div className="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32">
-        <div className="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
+      <div className="grid sm:px-10 mt-16 lg:grid-cols-2 lg:px-20 xl:px-32">
+        <div className="bg-gray-50 px-4 pt-8 lg:mt-0">
           <p className="text-xl font-medium">Delivery & Payment Details</p>
           <p className="text-gray-400">Complete your order by providing your payment details, And select a suitable shipping method.</p>
           <div className="">

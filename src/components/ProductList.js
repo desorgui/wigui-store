@@ -50,7 +50,7 @@ const ProductList = (props) => {
 
   return (
     <>
-      <div className="container mx-auto max-w-[80%] mb-12">
+      <div className="container mx-auto max-w-[80%] mb-12" id="products">
         <h2 className="text-center text-3xl lg:text-4xl text-primary-dark-blue mb-5 lg:text-left font-bold lg:my-8">Products.</h2>
         <ul className="hidden md:flex mx-auto font-semibold font-heading space-x-12 mb-12">
           <li className={`hover:text-red-500  cursor-pointer ${filter === 'all' ? 'current:text-red-500 active' : ''}`}>

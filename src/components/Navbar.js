@@ -1,11 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import logo from '../images/logo2.png';
 import ProfileDropdown from './ProfileDropdown';
 
 const Navbar = (props) => {
   const { counter, handleOpen } = props;
+
+  const [openMenu, setOpenMenu] = React.useState(false);
 
   return (
     <div className="flex flex-wrap w-full fixed z-50 top-0">
@@ -16,14 +18,16 @@ const Navbar = (props) => {
             <NavLink className="text-3xl font-bold font-heading" to="/">
               <img className="h-9" src={logo} alt="logo" />
             </NavLink>
-            <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-              <li><NavLink className="hover:text-red-500" to="/">Home</NavLink></li>
-              <li><NavLink className="hover:text-red-500" to="#">Category</NavLink></li>
-              <li><NavLink className="hover:text-red-500" to="#">Collections</NavLink></li>
-              <li><NavLink className="hover:text-red-500" to="#">Contact Us</NavLink></li>
+            <ul className={`${openMenu ? 'flex absolute md:relative top-16 md:top-auto w-full md:w-auto bg-white left-0 space-y-4 md:space-y-0 p-8 md:p-0'
+              : 'hidden'} md:flex flex-col md:flex-row px-4 mx-auto font-semibold font-heading md:space-x-12`}
+            >
+              <li><NavLink className="hover:text-red-500" to="/" onClick={() => setOpenMenu(!openMenu)}>Home</NavLink></li>
+              <li><Link className="hover:text-red-500" to="#products" onClick={() => setOpenMenu(!openMenu)}>Products</Link></li>
+              <li><NavLink className="hover:text-red-500" to="#" onClick={() => setOpenMenu(!openMenu)}>Collections</NavLink></li>
+              <li><NavLink className="hover:text-red-500" to="#" onClick={() => setOpenMenu(!openMenu)}>Contact Us</NavLink></li>
             </ul>
             {/* <!-- Header Icons --> */}
-            <div className="hidden xl:flex items-center space-x-5 items-center">
+            <div className="hidden xl:flex items-center space-x-5">
               <NavLink className="hidden hover:text-red-500" to="#">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -61,7 +65,7 @@ const Navbar = (props) => {
               </span>
             </span>
           </NavLink>
-          <NavLink className="navbar-burger self-center mr-12 xl:hidden" to="#">
+          <NavLink className="navbar-burger self-center mr-12 xl:hidden" to="#" onClick={() => setOpenMenu(!openMenu)}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
