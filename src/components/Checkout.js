@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import fedex from '../images/fedex.png';
 import dhl from '../images/dhl.png';
@@ -6,7 +6,7 @@ import dhl from '../images/dhl.png';
 const Checkout = (props) => {
   const { cartItems, total } = props;
 
-  const [shipping, setShipping] = React.useState(15);
+  const [shipping, setShipping] = useState(15);
 
   const totalWithShipping = total + shipping;
   return (
