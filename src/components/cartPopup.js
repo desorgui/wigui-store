@@ -66,7 +66,7 @@ const CartPopup = (props) => {
                                 <div className="flex flex-1 items-end justify-between text-sm">
                                   <div className="flex">
                                     <p className="text-gray-500">Qty:</p>
-                                    <button className="px-2" type="button" onClick={() => dispatch(decrementItemQuantity(product.id))}>-</button>
+                                    <button className={`${product.quantity === 1 ? 'pointer-events-none' : ''} px-2`} type="button" onClick={() => dispatch(decrementItemQuantity(product.id))}>-</button>
                                     <p>{product.quantity}</p>
                                     <button className="px-2" type="button" onClick={() => dispatch(incrementItemQuantity(product.id))}>+</button>
                                   </div>
