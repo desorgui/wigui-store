@@ -61,7 +61,7 @@ const CartPopup = (props) => {
                                       {product?.price}
                                     </p>
                                   </div>
-                                  <p className="mt-1 text-sm text-gray-500">Salmon</p>
+                                  <p className="mt-1 text-sm text-gray-500">{product.brand}</p>
                                 </div>
                                 <div className="flex flex-1 items-end justify-between text-sm">
                                   <div className="flex">
@@ -98,10 +98,10 @@ const CartPopup = (props) => {
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
                         or
-                        <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
+                        <Link to="/" onClick={isClose} className="font-medium text-indigo-600 hover:text-indigo-500">
                           Continue Shopping
                           <span aria-hidden="true"> &rarr;</span>
-                        </button>
+                        </Link>
                       </p>
                     </div>
                   </div>
