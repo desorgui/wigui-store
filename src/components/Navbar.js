@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import logo from '../images/logo2.png';
 import ProfileDropdown from './ProfileDropdown';
@@ -22,9 +22,8 @@ const Navbar = (props) => {
               : 'hidden'} md:flex flex-col md:flex-row px-4 mx-auto font-semibold font-heading md:space-x-12`}
             >
               <li><NavLink className="hover:text-red-500" to="/" onClick={() => setOpenMenu(!openMenu)}>Home</NavLink></li>
-              <li><Link className="hover:text-red-500" to="#products" onClick={() => setOpenMenu(!openMenu)}>Products</Link></li>
-              <li><NavLink className="hover:text-red-500" to="#" onClick={() => setOpenMenu(!openMenu)}>Collections</NavLink></li>
-              <li><NavLink className="hover:text-red-500" to="#" onClick={() => setOpenMenu(!openMenu)}>Contact Us</NavLink></li>
+              <li><a className="hover:text-red-500" href="#products" onClick={() => setOpenMenu(!openMenu)}>Products</a></li>
+              <li><NavLink className="hover:text-red-500" to="/checkout" onClick={() => setOpenMenu(!openMenu)}>Checkout</NavLink></li>
             </ul>
             {/* <!-- Header Icons --> */}
             <div className="hidden xl:flex items-center space-x-5">
