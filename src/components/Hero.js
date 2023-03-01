@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import marketImg from '../images/market.png';
 
 const Hero = () => (
@@ -11,9 +10,9 @@ const Hero = () => (
             <h1 className="text-3xl font-bold tracking-wide text-gray-800 dark:text-white lg:text-5xl">The best Place to order online</h1>
             <p className="mt-4 text-gray-600 dark:text-gray-300">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quia asperiores alias vero magnam recusandae adipisci ad vitae laudantium quod rem voluptatem eos accusantium cumque.</p>
             <div className="mt-12 pb-16">
-              <NavLink to="#" className="w-48 bg-[#e74c3c] p-4 transition-transform rounded-lg opacity-80 hover:opacity-100 active:top-[4px] active:shadow-[0_3px_2px_#c0392b,0_3px_5px_#111] shadow-[0_7px_2px_#c0392b,0_8px_5px_#111] border-none text-white relative font-bold text-sm">
+              <a href="#products" className="w-48 bg-[#e74c3c] p-4 transition-transform rounded-lg opacity-80 hover:opacity-100 active:top-[4px] active:shadow-[0_3px_2px_#c0392b,0_3px_5px_#111] shadow-[0_7px_2px_#c0392b,0_8px_5px_#111] border-none text-white relative font-bold text-sm">
                 Start Shopping
-              </NavLink>
+              </a>
             </div>
           </div>
         </div>
