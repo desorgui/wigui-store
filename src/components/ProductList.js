@@ -79,26 +79,12 @@ const ProductList = (props) => {
           <div>
             <div className="relative" data-te-dropdown-ref>
               <button
-                className="flex items-center whitespace-nowrap rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none"
+                className="flex items-center whitespace-nowrap rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:shad motion-reduce:transition-none"
                 type="button"
                 onClick={() => setOpenDropdown(!openDropdown)}
               >
                 <img src={filterIcon} alt="Filter Icon" className="text-gray-900 w-4 mr-4" />
-                Category
-                {/* <span className="ml-2 w-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="h-5 w-5"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span> */}
+                Filter
               </button>
               {openDropdown && (
                 <ul
