@@ -6,7 +6,7 @@ import Pagination from './Pagination';
 import filterIcon from '../images/filter.svg';
 
 const ProductList = (props) => {
-  const { increment } = props;
+  const { increment, handleAddToCartClick } = props;
 
   const [openDropdown, setOpenDropdown] = useState(false);
 
@@ -125,7 +125,7 @@ const ProductList = (props) => {
         </div>
         <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
           {currentTableData.map((product) => (
-            <CardItem key={product.id} {...product} increment={increment} /> // eslint-disable-line
+            <CardItem key={product.id} {...product} increment={increment} handleAddToCartClick={handleAddToCartClick} /> // eslint-disable-line
           ))}
         </div>
       </div>
@@ -145,4 +145,5 @@ export default ProductList;
 
 ProductList.propTypes = {
   increment: PropTypes.func.isRequired,
+  handleAddToCartClick: PropTypes.func.isRequired,
 };

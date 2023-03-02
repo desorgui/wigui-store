@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from './redux/products/products';
-import { fetchCart } from './redux/carts/carts';
+import { fetchCart, addProductCart, incrementItemQuantity } from './redux/carts/carts';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
@@ -60,6 +60,19 @@ function App() {
     setCounter(carts.length);
   }, [dispatch, counter, carts.length]);
 
+  const handleAddToCartClick = (product) => {
+    const existingCartItemIndex = cartItems.findIndex(
+      (item) => item.id === product.id,
+    );
+    if (existingCartItemIndex !== -1) {
+      dispatch(incrementItemQuantity(product.id));
+    } else {
+      const newCartItem = { ...product, quantity: product.quantity || 1 };
+      dispatch(addProductCart(newCartItem));
+      increment();
+    }
+  };
+
   return (
     <div>
       <Navbar counter={counter} handleOpen={handleOpen} />
@@ -69,12 +82,12 @@ function App() {
           element={(
             <>
               <Hero />
-              <ProductList increment={increment} />
+              <ProductList increment={increment} handleAddToCartClick={handleAddToCartClick} />
               <Analytics />
             </>
         )}
         />
-        <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/products/:id" element={<ProductDetail handleAddToCartClick={handleAddToCartClick} />} />
         <Route path="/checkout" element={<Checkout cartItems={cartItems} total={total} />} />
       </Routes>
       {isOpen && (

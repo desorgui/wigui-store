@@ -1,36 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addProductCart, incrementItemQuantity } from '../redux/carts/carts';
 
 const CardItem = (props) => {
   const {
-    id, title, price, rating, thumbnail, brand, increment,
+    id, title, price, rating, thumbnail, brand, handleAddToCartClick,
   } = props;
 
-  const cartProducts = useSelector((state) => state.carts);
-
-  const dispatch = useDispatch();
-
-  const handleAddToCartClick = () => {
-    const product = {
-      id,
-      title,
-      price,
-      thumbnail,
-      brand,
-    };
-    const existingCartItemIndex = cartProducts.findIndex(
-      (item) => item.id === id,
-    );
-    if (existingCartItemIndex !== -1) {
-      dispatch(incrementItemQuantity(id));
-    } else {
-      const newCartItem = { ...product, quantity: 1 };
-      dispatch(addProductCart(newCartItem));
-      increment();
-    }
+  const product = {
+    id,
+    title,
+    price,
+    thumbnail,
+    brand,
   };
 
   return (
@@ -66,7 +48,7 @@ const CardItem = (props) => {
               </span>
               <NavLink
                 to="#"
-                onClick={handleAddToCartClick}
+                onClick={() => handleAddToCartClick(product)}
                 className="text-white relative overflow-hidden focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-32 h-12 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 <span className="text-center pt-4 bg-gradient-to-r left-0 top-0 from-[#ffffff79] to-[#96969640] z-20 absolute backdrop-blur-md w-full h-full leading-12">Add to cart</span>
@@ -89,5 +71,5 @@ CardItem.propTypes = {
   rating: PropTypes.number.isRequired,
   thumbnail: PropTypes.string.isRequired,
   brand: PropTypes.string.isRequired,
-  increment: PropTypes.func.isRequired,
+  handleAddToCartClick: PropTypes.func.isRequired,
 };
