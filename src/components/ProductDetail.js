@@ -19,7 +19,7 @@ const ProductDetail = (props) => {
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (event) => {
-    setQuantity(event.target.value);
+    setQuantity(Number(event.target.value));
   };
 
   const newProduct = {
