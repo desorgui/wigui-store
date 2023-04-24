@@ -3,39 +3,39 @@
 <div align="center">
   <br/>
 
-  <h3><b>Realtime Search</b></h3>
+  <h3><b>Wigui Store</b></h3>
 
 
   <!-- Badges -->
 <p>
   <a href="https://github.com/desorgui/realtime-search/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/desorgui/realtime-search" alt="contributors" />
+    <img src="https://img.shields.io/github/contributors/desorgui/wigui-store" alt="contributors" />
   </a>
   <a href="">
-    <img src="https://img.shields.io/github/last-commit/desorgui/realtime-search" alt="last update" />
+    <img src="https://img.shields.io/github/last-commit/desorgui/wigui-store" alt="last update" />
   </a>
-  <a href="https://github.com/desorgui/realtime-search/network/members">
-    <img src="https://img.shields.io/github/forks/desorgui/realtime-search" alt="forks" />
+  <a href="https://github.com/desorgui/wigui-store/network/members">
+    <img src="https://img.shields.io/github/forks/desorgui/wigui-store" alt="forks" />
   </a>
-  <a href="https://github.com/desorgui/realtime-search/stargazers">
-    <img src="https://img.shields.io/github/stars/desorgui/realtime-search" alt="stars" />
+  <a href="https://github.com/desorgui/wigui-store/stargazers">
+    <img src="https://img.shields.io/github/stars/desorgui/wigui-store" alt="stars" />
   </a>
-  <a href="https://github.com/desorgui/realtime-search/issues/">
-    <img src="https://img.shields.io/github/issues/desorgui/realtime-search" alt="open issues" />
+  <a href="https://github.com/desorgui/wigui-store/issues/">
+    <img src="https://img.shields.io/github/issues/desorgui/wigui-store" alt="open issues" />
   </a>
-  <a href="https://github.com/desorgui/realtime-search/blob/main/MIT.md">
-    <img src="https://img.shields.io/github/license/desorgui/realtime-search.svg" alt="license" />
+  <a href="https://github.com/desorgui/wigui-store/blob/main/MIT.md">
+    <img src="https://img.shields.io/github/license/desorgui/wigui-store.svg" alt="license" />
   </a>
 </p>
    
 <h4>
     <a href="https://rails-6e4u.onrender.com/">View Demo</a>
   <span> · </span>
-    <a href="https://github.com/desorgui/realtime-search">Documentation</a>
+    <a href="https://github.com/desorgui/wigui-store">Documentation</a>
   <span> · </span>
-    <a href="https://github.com/desorgui/realtime-search/issues/">Report Bug</a>
+    <a href="https://github.com/desorgui/wigui-store/issues/">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/desorgui/realtime-search/issues/">Request Feature</a>
+    <a href="https://github.com/desorgui/wigui-store/issues/">Request Feature</a>
   </h4>
 
 </div>
@@ -72,7 +72,7 @@
 
 <!-- > Describe your project in 1 or 2 sentences. -->
 
-**[realtime-search]** a full-stack web application using Ruby on Rails and plain CSS.
+**[wigui-store]** a full-stack web application using Ruby on Rails and plain CSS.
 - Integrated the Devise gem for user authentication to ensure secure access to the application.
 - Implemented efficient search functionality using Jarowrinkler and PgSearch to provide accurate and relevant search results for users.
 - Utilized Turbo Frame Tag, Stimulus, and Hotwire to improve the user experience by providing real-time updates and avoiding full-page reloads.
@@ -179,8 +179,8 @@ Open Git Bash and run:
 
 ```
   cd my-folder
-  git clone https://github.com/desorgui/realtime-search.git
-  cd realtime-search
+  git clone https://github.com/desorgui/wigui-store.git
+  cd wigui-store
 ```
 
 ### :gear: Install <a name="install"></a>
@@ -191,25 +191,24 @@ Install this project with:
 Example command: -->
 
 ```
- gem install bundler
- bundler install
+ npm install
 ```
 
 ### :eyes: Usage <a name="usage"></a>
 
 To run the project locally, follow these steps:
 
-- In the terminal run: `rails s`, that will run the server.
+- In the terminal run: `npm run start`, that will run the server.
 
 - and Open the `http://localhost:3000` in your browser.
 <!--
 Example command:
 
 ```sh
-  rails server
+  npm run start
 ```
 --->
-
+<!--
  ### :test_tube: Run tests <a name="Test"></a>
 To run unit and integration tests, run the following on the root project's directory:
 
@@ -220,6 +219,7 @@ To run Rubocop tests, run the following command:
 Run `rubocop --color`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+-->
 
 <!-- AUTHORS -->
 
