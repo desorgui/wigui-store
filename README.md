@@ -29,7 +29,7 @@
 </p>
    
 <h4>
-    <a href="https://wiguistore.netlify.app/">/View Demo</a>
+    <a href="https://wiguistore.netlify.app/">View Demo</a>
   <span> · </span>
     <a href="https://github.com/desorgui/wigui-store">Documentation</a>
   <span> · </span>
