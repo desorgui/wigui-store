@@ -68,16 +68,13 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [realtime-search] <a name="about-project"></a>
+# 📖 [Wigui Store] <a name="about-project"></a>
 
 <!-- > Describe your project in 1 or 2 sentences. -->
 
-**[wigui-store]** a full-stack web application using Ruby on Rails and plain CSS.
-- Integrated the Devise gem for user authentication to ensure secure access to the application.
-- Implemented efficient search functionality using Jarowrinkler and PgSearch to provide accurate and relevant search results for users.
-- Utilized Turbo Frame Tag, Stimulus, and Hotwire to improve the user experience by providing real-time updates and avoiding full-page reloads.
-- Included an analytics feature that lists the most searched terms by users to help them refine their searches accordingly.
-- Implemented a mailer feature using Ruby on Rails Action Mailer and the Gmail SMTP server to enable users to receive a regular summary of their search history via email.
+**[wigui-store]** a fully functional online store built with React, Redux, and TailwindCSS. The website includes a product catalog, shopping cart, checkout flow, and responsive design, all designed to provide a smooth and intuitive shopping experience for customers.
+
+The project follows web development best practices, including thorough testing and debugging to ensure high security, accessibility, and performance. The code is well-structured and documented, making it easy for developers to understand and modify.
 
 ## :camera: Screenshots <a name="screenshots"></a>
 
@@ -130,10 +127,11 @@
 
 <!-- > Describe between 1-3 key features of the application. -->
 
-- **[Real time search]**
-- **[Record user search]**
-- **[Show user search history]**
-- **[Send user search history to your email]**
+- **[Product Catalog]**
+- **[Shopping Cart]**
+- **[Checkout Flow]**
+- **[Responsive Design]**
+- **[Web Development Best Practices]**
 <!-- - **[key_feature_3]** -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -160,7 +158,6 @@ In order to run this project you need:
 
 - Git
 - Node JS
-- ruby
 - A code Editor (VS Code, Sublime Text, ...)
 
 <!--
