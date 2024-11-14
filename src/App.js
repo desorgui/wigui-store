@@ -4,6 +4,8 @@ import {
   Route,
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import { getProducts } from './redux/products/products';
 import { fetchCart, addProductCart, incrementItemQuantity } from './redux/carts/carts';
 import Navbar from './components/Navbar';
@@ -14,6 +16,16 @@ import Checkout from './components/Checkout';
 import ProductList from './components/ProductList';
 import Analytics from './components/Analytics';
 import CartPopup from './components/cartPopup';
+
+const MySwal = withReactContent(Swal);
+
+MySwal.fire({
+  title: <p>Hello World</p>,
+  didOpen: () => {
+    // `MySwal` is a subclass of `Swal` with all the same instance & static methods
+    MySwal.showLoading();
+  },
+}).then(() => MySwal.fire(<p>Shorthand works too</p>));
 
 function App() {
   const dispatch = useDispatch();
